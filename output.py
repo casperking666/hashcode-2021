@@ -1,18 +1,11 @@
-inputDic = {'intersection': [['streetName', 'time'], []], 'intersection2': [['streetName', 'time']]}
+# inputDic = {'intersection': [['streetName', 'time'], []], 'intersection2': [['streetName', 'time']]}
 
 
 def writeFile(inputDic):
     output = open('file.txt', 'w')
-    length = len(inputDic)
-    output.write('%d\n' % length)
-    count = 0
-    for i in inputDic:
-        temp = list(inputDic.keys())[i]
-        output.write(str(temp))
+    output.write(str(len(inputDic)) + "\n")
+    for i in inputDic.keys():
+        output.write(i+"\n")
         for j in inputDic[i]:
-            if isinstance(inputDic[i][j], list):
-                count += 1
-        output.write('%d\n' % count)
-
-
-writeFile(inputDic)
+            output.write("{0} {1}\n".format(j[0], j[1]))
+    output.close()

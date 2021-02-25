@@ -1,16 +1,14 @@
-inputDic = {1:[['b',2]],
-        2:[['d',2],['e',1]],
-        3:[['a',2]]
-}
 
-# outputDic = {}
+def getInput(input):
+    inputDic = input
+    count = 0
+    Denominator = 0
 
+    # outputDic = {}
 
-probability = []
-# write a func of processing inputs and compute
+    probability = []
+    # write a func of processing inputs and compute
 
-
-def getInput():
     # using for loop to get keys
     intersectionIn = inputDic.keys() # it is a list
     inputDetail = inputDic.values() # also a list
@@ -30,10 +28,6 @@ def getInput():
     # print("name: {name}, probability: {pro}".format(name = nameOfRoad[0], pro = probability[0]))
 
 
-def data_collection():
-    # formatting the output
-    count = 0
-    Denominator = 0
     for ProbabilityOfItem in probability:
         Denominator += ProbabilityOfItem
         print(Denominator)
@@ -41,9 +35,18 @@ def data_collection():
         for i in detail:
             i[1] = (probability[count] / Denominator) * 6
             count += 1
+
+    return inputDic
+
     
 
 if __name__ == '__main__':
-    getInput()
-    data_collection()
+
+    inputDic = {1: [['b', 2]],
+                2: [['d', 2], ['e', 1]],
+                3: [['a', 2]]
+                }
+
+    getInput(inputDic)
+
     print ("字典值 : %s" %  inputDic.items())

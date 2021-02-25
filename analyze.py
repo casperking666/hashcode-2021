@@ -30,7 +30,6 @@ def getInput(input):
 
     for ProbabilityOfItem in probability:
         Denominator += ProbabilityOfItem
-        print(Denominator)
     for intersection_ID, detail in inputDic.items():
         for i in detail:
             i[1] = (probability[count] / Denominator) * 6

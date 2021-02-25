@@ -1,10 +1,11 @@
 inputDic = {1:[['b',2]],
         2:[['d',2],['e',1]],
+        3:[['a',2]]
 }
 
 # outputDic = {}
 
-nameOfRoad = []
+
 probability = []
 # write a func of processing inputs and compute
 
@@ -14,25 +15,35 @@ def getInput():
     intersectionIn = inputDic.keys() # it is a list
     inputDetail = inputDic.values() # also a list
     # for i in intersectionIn:
-    for i in intersectionIn:
+    for intersection_ID,detail in inputDic.items():
         listOfMolecular = []
         Denominator = 0
-        for j in inputDetail:
-            for z in range(len(j)):
-                nameOfRoad.append(j[z][0])
-                listOfMolecular.append(j[z][1])
-                Denominator += j[z][1]
+        for street in detail:
+            # print(street[1])
+            listOfMolecular.append(street[1])
+            Denominator += street[1]
         for h in listOfMolecular:
             # print(h)
-            probability.append(h / Denominator)
+            # print(h / Denominator)
+            probability.append(h / Denominator)   
         
-    print("name: {name}, probability: {pro}".format(name = nameOfRoad[0], pro = probability[0]))
+    # print("name: {name}, probability: {pro}".format(name = nameOfRoad[0], pro = probability[0]))
 
-# def wrapping():
-#     # using for loop to put elements in
-#     intersectionIn = inputDic.keys()
-#     for i in intersectionIn:
-#         outputDic = {(int)intersectionID : [["streetName", (int)car_number]];}
-#         return outputDic
 
-getInput()
+def data_collection():
+    # formatting the output
+    count = 0
+    Denominator = 0
+    for ProbabilityOfItem in probability:
+        Denominator += ProbabilityOfItem
+        print(Denominator)
+    for intersection_ID, detail in inputDic.items():
+        for i in detail:
+            i[1] = (probability[count] / Denominator) * 6
+            count += 1
+    
+
+if __name__ == '__main__':
+    getInput()
+    data_collection()
+    print ("字典值 : %s" %  inputDic.items())

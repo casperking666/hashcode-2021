@@ -1,16 +1,12 @@
-
-
+import read_file
 
 # input    {intersection ID : [[street,cars]]}
 
 def data_collection(basic_data:dict, street_dict:dict, car_list:list):
-    output = {
-
-    }
-
+    output = {}
     street_count = {}
 
-    #get the count of cars for each street
+    #get the count of cars for each street, put the result into 'street_count' dictionary
     for car in car_list:
         for street in car:
             if street_count.get(street):
@@ -19,15 +15,17 @@ def data_collection(basic_data:dict, street_dict:dict, car_list:list):
                 street_count[street] = 1
 
 
+    # formatting the output
     for street, count in dict.items(street_count):
         intersection_ID:str = street_dict[street][1]
-        output[intersection_ID] = [street,count]
+        if output.get(intersection_ID):
+            output[intersection_ID] += [[street,count]]
+        else:
+            output[intersection_ID] = [[street,count]]
 
     return output
 
 
-
 if __name__ == '__main__':
-    streetdic={"road 1":["1","2",123],"road 2":["2","3",123],"road 3":["4","1",123]}
-    car_l = [["road 1","road 2","road 3"],["road 2","road 3"]]
-    print(data_collection({},streetdic,car_l))
+    baseinfo,street_dict,car_info = read_file.readfile("a.txt")
+    print(data_collection(baseinfo,street_dict,car_info))

@@ -23,8 +23,5 @@ def readfile(filename):
         car_line_list.pop(0)
         cars.append(car_line_list)
 
+    f.close()
     return base_info, street, cars
-
-
-if __name__ == '__main__':
-    base, street, car = readfile("a.txt")

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 def output(output_result:dict):
 
 
@@ -22,8 +22,13 @@ def output(output_result:dict):
 if __name__ == '__main__':
     content = {0:[["road1",12]],1:[["road 3",15],["road 5",20]]}
     output(content)
-=======
-inputDic = {'intersection': [['streetName', 'time'], []], 'intersection2': [['streetName', 'time']]}
+
+
+
+
+
+
+"""inputDic = {'intersection': [['streetName', 'time'], []], 'intersection2': [['streetName', 'time']]}
 
 
 def writeFile(inputDic):
@@ -42,3 +47,4 @@ def writeFile(inputDic):
 
 writeFile(inputDic)
 >>>>>>> Add files via upload
+"""
